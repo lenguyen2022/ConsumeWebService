@@ -1,0 +1,23 @@
+<p>student-list</p>
+
+<ul class="nav flex-column">
+  <li class="nav-item" *ngFor="let student of studentList;">
+    <a  [routerLink]="['/students', student.id]" routerLinkActive="active" ariaCurrentWhenActive="page" aria-current="page"> {{student.name}}</a>
+    <a  [routerLink]="['/editstudent', student.id,'edit']"
+        [queryParams]="{allowEdit:'1'}"
+        routerLinkActive="active" ariaCurrentWhenActive="page" aria-current="page"> Edit {{student.name}}</a>
+  </li>
+</ul>
+<table class="table">
+  <tbody>
+
+    <tr *ngFor="let student of studentList">
+      <th scope="row">{{student.id}}</th>
+      <td>{{student.name}}</td>
+      <td><a  [routerLink]="['/editstudent', student.id,'edit']"
+              [queryParams]="{allowEdit:'1'}"
+              routerLinkActive="active" ariaCurrentWhenActive="page" aria-current="page"> Edit </a></td>
+    </tr>
+
+  </tbody>
+</table>

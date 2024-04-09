@@ -1,0 +1,11 @@
+<p>edit-student works!</p>
+
+<div *ngIf="student">
+  <label>Student ID:</label> <br>
+  <input type="text" [(ngModel)]="student.id"  > <br>
+  <label>Student Name:</label> <br>
+  <input type="text" [(ngModel)]="student.name"  > <br>
+  <button (click)="updateStudent()">Submit</button>
+</div>
+
+
