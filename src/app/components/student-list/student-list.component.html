@@ -1,22 +1,38 @@
 <p>student-list</p>
 
-<ul class="nav flex-column">
-  <li class="nav-item" *ngFor="let student of studentList;">
-    <a  [routerLink]="['/students', student.id]" routerLinkActive="active" ariaCurrentWhenActive="page" aria-current="page"> {{student.name}}</a>
-    <a  [routerLink]="['/editstudent', student.id,'edit']"
-        [queryParams]="{allowEdit:'1'}"
-        routerLinkActive="active" ariaCurrentWhenActive="page" aria-current="page"> Edit {{student.name}}</a>
-  </li>
-</ul>
+
 <table class="table">
+  <thead class="table-dark">
+  <tr>
+    <th>#</th>
+    <th>Name</th>
+    <th>Edit</th>
+    <th>Delete</th>
+    <th>Student Details</th>
+  </tr>
+  </thead>
   <tbody>
 
     <tr *ngFor="let student of studentList">
       <th scope="row">{{student.id}}</th>
       <td>{{student.name}}</td>
-      <td><a  [routerLink]="['/editstudent', student.id,'edit']"
+      <td>
+        <a  [routerLink]="['/editstudent', student.id,'edit']"
               [queryParams]="{allowEdit:'1'}"
-              routerLinkActive="active" ariaCurrentWhenActive="page" aria-current="page"> Edit </a></td>
+              routerLinkActive="active" ariaCurrentWhenActive="page" aria-current="page"> Edit
+        </a>
+      </td>
+      <td>
+        <a  [routerLink]="['/delete-student', student.id,'delete']"
+              [queryParams]="{allowDelete:'1'}"
+              routerLinkActive="active" ariaCurrentWhenActive="page" aria-current="page"> Delete
+        </a>
+      </td>
+      <td>
+        <a  [routerLink]="['/student-details', student.id]"
+            routerLinkActive="active" ariaCurrentWhenActive="page" aria-current="page"> Student Details
+        </a>
+      </td>
     </tr>
 
   </tbody>

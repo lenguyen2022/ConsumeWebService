@@ -1,1 +1,8 @@
 <p>add-student works!</p>
+<div *ngIf="student">
+
+  <label>Student Name:</label> <br>
+  <input type="text" [(ngModel)]="student.name"  > <br>
+  <button (click)="addStudent()">Add Student</button>
+  <p>{{addMessage}}</p>
+</div>
